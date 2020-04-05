@@ -18,17 +18,29 @@ package com.zun.fdas.controller;
  * @create 2020/4/3
  * @since 1.0.0
  */
+import com.zun.fdas.Model.AlarmInformation;
+import com.zun.fdas.serviceimpl.AlarmInformationServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Controller
-public class HelloController {
-
+public class IndexController {
+@Autowired
+AlarmInformationServiceImpl alarmInformationService;
     @RequestMapping("/index")
     public String hello() {
         System.out.println("jell");
+
+        List<AlarmInformation> informationList = alarmInformationService.getAlarmInformation();
+        for (AlarmInformation a:
+            informationList ) {
+            System.out.println(a.getAlarm_time()+a.getDescription()+a.getId()+a.getFan_no());
+        }
         return "index";
     }
+
 
 }

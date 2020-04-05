@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,152 +9,161 @@
 
     <script type="text/javascript" src="../static/js/rem.js"></script>
     <link rel="stylesheet" href="../static/css/style.css">
-    <title>zun</title>
+    <title>风机数据实时分析平台</title>
+    <script src="../static/js/shine.js"></script>
 </head>
 
 <body style="visibility: hidden;">
-    <div class="container-flex" tabindex="0" hidefocus="true">
-        <div class="box-left">
-            <div class="left-top">
-                <div class="current-num">
-                    <div>当前比对数据</div>
-                    <p>3,456,789</p>
-                </div>
+<div class="container-flex" tabindex="0" hidefocus="true">
+    <div class="box-left">
+        <div class="left-top">
+            <div class="current-num">
+                <div>总报警信息</div>
+                <p id="count"></p>
             </div>
-            <div class="left-center">
-                <div class="title-box">
-                    <h6>违法犯罪人员分析</h6>
-                </div>
-                <div class="chart-box pie-chart" style="">
-                    <div id="pie_fanzui" style="width:100%;"></div>
-                    
-                </div>
+        </div>
+        <!--        <div class="left-center">-->
+        <!--            <div class="title-box">-->
+        <!--                <h6>违法犯罪人员分析</h6>-->
+        <!--            </div>-->
+        <!--            <div class="chart-box pie-chart" style="">-->
+        <!--                <div id="pie_fanzui" style="width:50%;"></div>-->
+
+        <!--            </div>-->
+        <!--        </div>-->
+        <div class="left-bottom">
+            <div class="title-box">
+                <h6>报警信息</h6>
+
             </div>
-            <div class="left-bottom" >
-                <div class="title-box">
-                    <h6>人口出入记录</h6>
-                    
-                </div>
-                <div class="chart-box">
-                    <table class="table3">
+            <div class="chart-box">
+                <table class="table3">
                     <thead>
-                        <tr>
-                            <th>姓名</th>
-                            <th>角色</th>
-                            <th>开门方式</th>
-                            <th>时间</th>
-                        </tr>
+                    <tr>
+                        <th>机组编号</th>
+                        <th>报警时间</th>
+                        <th>报警描述</th>
+
+                    </tr>
                     </thead>
                     <tbody id="tList">
-<!--<tr><td colspan="4"><p style="width:9.6rem;">暂无数据</p></td></tr>-->
-                 
-                   <tr>
-                       <td>张梦</td>
-                       <td>访客</td>
-                       <td>人脸</td>
-                       <td>2018-11-01 13:51:23</td>
-                   </tr>
-                   <tr>
-                       <td>李阳荣</td>
-                       <td>业主</td>
-                       <td>APP</td>
-                       <td>2018-11-01 13:51:23</td>
-                   </tr>
-                   <tr>
-                        <td>张无双</td>
-                       <td>访客</td>
-                       <td>人脸</td>
-                       <td>2018-11-01 13:51:23</td>
-                   </tr>
-                   <tr>
-                       <td>李阳</td>
-                       <td>业主</td>
-                       <td>APP</td>
-                       <td>2018-11-01 13:51:23</td>
-                   </tr>
-                  
+                    <!--<tr><td colspan="4"><p style="width:9.6rem;">暂无数据</p></td></tr>-->
+
+                    <tr>
+                        <td>WT3243234</td>
+                        <td>2018-11-01 13:51:23</td>
+                        <td>过去30秒内发电机温度高于80度以上出现:10次</td>
+                    </tr>
+                    <tr>
+                        <td>WT3243234</td>
+                        <td>2018-11-01 13:51:23</td>
+                        <td>过去30秒内发电机温度高于80度以上出现:10次</td>
+                    </tr>
+                    <tr>
+                        <td>WT3243234</td>
+                        <td>2018-11-01 13:51:23</td>
+                        <td>过去30秒内发电机温度高于80度以上出现:10次</td>
+                    </tr>
+                    <tr>
+                        <td>WT3243234</td>
+                        <td>2018-11-01 13:51:23</td>
+                        <td>过去30秒内发电机温度高于80度以上出现:10次</td>
+                    </tr>
+
+                    <tr>
+                        <td>WT3243234</td>
+                        <td>2018-11-01 13:51:23</td>
+                        <td>过去30秒内发电机温度高于80度以上出现:10次</td>
+                    </tr>
+
+                    <tr>
+                        <td>WT3243234</td>
+                        <td>2018-11-01 13:51:23</td>
+                        <td>过去30秒内发电机温度高于80度以上出现:10次</td>
+                    </tr>
+
                     </tbody>
                 </table>
-                
-                </div>
-            </div>
-        </div>
-        <div class="box-center">
-            <div class="center-top">
-                <h1>风机数据实时分析平台</h1>
-            </div>
-            <div class="center-center">
-                <div class="weather-box">
-                    <div class="data">
-                        <p class="time" id="time">00:00:00</p>
-                        <p id="date"></p>
-                    </div>
-                    <div class="weather">
-                        <img id="weatherImg" src="../static/images/weather/weather_img01.png" alt="">
-                        <div id="weather">
-                            <p class="active">多云</p>
-                            <p>16-22℃</p>
-                            <p>天津市和平区</p>
-                        </div>
-                    </div>
-                </div>
-                <img src="../static/images/line_bg.png" alt="">
-                <div class="select-box" style="height: 0.3rem;">
-                    
-                    <div data-type="2">
-                        <div class="select" tabindex="0" hidefocus="true" >
-                           <p style="color:#FFFF00;font-weight:bold;">NO.1北京：2543289人</p>
-                           <p style="color:#7FFF00;font-weight:bold;">NO.1天津： 5690人</p>
-                           <p style="color:#7FFFD4;font-weight:bold;">NO.1河北： 456人</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="center-bottom">
-                <div class="chart-box">
-                    <div id="china_map" style="width:100%;height:95%;"></div>
-                </div>
-                
-            </div>
 
-        </div>
-        <div class="box-right">
-            <div class="right-top">
-                <div class="title-box">
-                    <h6 id="barTitle">违法犯罪人员年龄分布</h6>
-                    
-                </div>
-                <p class="unit">单位：岁</p>
-                <div class="chart-box">
-                    <div id="pie_age" style="width:100%;height:100%;"></div>
-                </div>
-                
-            </div>
-            <div class="right-center">
-            	
-                <div class="title-box">
-                    <h6>违法犯罪人员地区分布</h6>
-                </div>
-                <div class="chart-box pie-chart">
-                    
-                    <div id="qufenbu_data"style="width:90%;height:120px;margin-left:10px;"></div>
-                    
-                </div>
-            </div>
-            
-            
-            <div class="right-bottom">
-                <div class="title-box">
-                	<p id="switchBtn"><span class="active" data-dataType="income">人口出入时间段统计</span></p>
-                    
-                </div>
-                <div id="line_time" style="width:90%;height:160px;margin-left:10px;"></div>
-                
             </div>
         </div>
     </div>
-    
+    <div class="box-center">
+        <div class="center-top">
+            <h1>风机数据实时分析平台</h1>
+        </div>
+        <div class="center-center">
+            <div class="weather-box">
+                <div class="data">
+                    <p class="time" id="time">00:00:00</p>
+                    <p id="date"></p>
+                </div>
+                <div class="weather">
+                    <img id="weatherImg" src="../static/images/weather/weather_img01.png" alt="">
+                    <div id="weather">
+                        <p class="active">多云</p>
+                        <p>16-22℃</p>
+                        <p>天津市和平区</p>
+                    </div>
+                </div>
+            </div>
+            <img src="../static/images/line_bg.png" alt="">
+            <div class="select-box" style="height: 0.3rem;">
+
+                <div data-type="2">
+                    <div class="select" tabindex="0" hidefocus="true" id="top">
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="center-bottom">
+            <div class="title-box">
+                <p id="switchBtn"><span class="active" data-dataType="income">十分钟报警信息</span></p>
+
+            </div>
+            <div id="line_time" style="width:90%;height:90%;margin-left:10px;"></div>
+
+
+        </div>
+
+    </div>
+    <div class="box-right">
+        <div class="right-top">
+            <div class="title-box">
+                <h6 id="barTitle">近一小时报警机组分布</h6>
+
+            </div>
+            <p class="unit">单位：次数</p>
+            <div class="chart-box">
+                <div id="pie_age" style="width:100%;height:100%;"></div>
+            </div>
+
+        </div>
+        <div class="right-bottom">
+
+            <div class="title-box">
+                <h6>近一小时各机组报警数量</h6>
+            </div>
+            <div class="chart-box pie-chart">
+
+                <div id="qufenbu_data" style="width:90%;height:90%;margin-left:10px;margin-top: 30%"></div>
+
+            </div>
+        </div>
+
+
+        <!--        <div class="right-bottom">-->
+
+        <!--            <div class="chart-box">-->
+        <!--                <div id="china_map" style="width:100%;height:95%;"></div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </div>
+</div>
+
 </body>
 <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../static/js/layer/layer.min.js"></script>
@@ -171,8 +180,109 @@
         $("body").css('visibility', 'visible');
         var localData = [$('#teacher').val(), $('#start').val() + '/' + $('#end').val(), $('#leader').val()]
         localStorage.setItem("data", localData);
-        
+
     })
 </script>
 
+<script type="text/javascript">
+
+
+    //先检验能不能运行起来，能不能连上，自动推送数据，先不做数据显示
+
+    //客户端就会与服务器进行连接
+
+    var webSocket = new WebSocket("ws://localhost:8080/websocket");
+
+
+    //这里只是调试用
+
+    //连接失败时回调
+
+    webSocket.onerror = function (event) {
+
+        makeDataOnWeb("error");
+
+    };
+
+
+    //这里只是调试用
+
+    //连接成功时回调，真的会执行括号中的代码！
+
+    webSocket.onopen = function (event) {
+
+        makeDataOnWeb("conn success");
+
+    };
+
+
+    webSocket.onmessage = function (event) {
+
+        makeDataOnWeb(event.data);
+
+
+    };
+
+
+    //这里只是调试用
+
+    webSocket.onclose = function (event) {
+
+        makeDataOnWeb("conn close");
+
+    };
+    var messages = []
+    var LENGTH = 9
+
+    function updateTable(data) {
+
+        if (messages.length == LENGTH) {
+            messages.shift();
+        }
+        var json = JSON.parse(data);
+        messages.push(json);
+        var str = ""
+        for (var i = 0; i < messages.length; i++) {
+            var temp = "<tr>"
+            temp += "<td>" + messages[i].fanNo + "</td>"
+                + "<td>" + messages[i].alarmTime + "</td>"
+                + "<td>" + messages[i].description + "</td>"
+            temp += "</tr>";
+            str += temp;
+
+        }
+        var type = json.type;
+        var res = json.groupByRes;
+        var res_str = "";
+
+        var i = 1;
+        var values = [];
+        var types = [];
+        var pie_data=[]
+        for (var key in res) {
+            types.push(key);
+            values.push(res[key]);
+            pie_data.push({value:res[key],name:key});
+            res_str += "<p style='color:#ff4517;font-weight:bold;'> NO." + (i) + " " + key + " ：" + res[key] + "条 </p>";
+            i += 1;
+        }
+
+
+        document.getElementById("tList").innerHTML = str;
+        document.getElementById("count").innerText = json.count;
+        document.getElementById("top").innerHTML = res_str;
+        drawBar(types,values);
+        drawPie(pie_data);
+
+    }
+
+    function makeDataOnWeb(data) {
+        updateTable(data)
+
+
+
+    };
+
+
+</script>
 </html>
