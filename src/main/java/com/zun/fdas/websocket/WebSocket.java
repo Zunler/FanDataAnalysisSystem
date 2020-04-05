@@ -36,7 +36,7 @@ public class WebSocket {
     public void onOpen(Session session){
         SendMessage sendMessage = new SendMessage(session);
         Thread thread = new Thread(sendMessage);
-        System.out.println("websocket start");
+        System.out.println("Websocket Started");
         thread.start();
 
     }

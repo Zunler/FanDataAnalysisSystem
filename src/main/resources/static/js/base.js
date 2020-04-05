@@ -207,53 +207,54 @@ function drawPie(data){
 //----------------------违法犯罪人员年龄分析占比end---------------
 
 
-
-//===================人口出入时间段统计=======================
-//var line_time =echarts.init(document.getElementById("line_time"),'shine'); 
-var line_time =echarts.init(document.getElementById("line_time"),'macarons'); 
-//var line_time =echarts.init(document.getElementById("line_time"),'infographic'); 
-var option = {
+function drawGraph(key, value) {
+    var line_time = echarts.init(document.getElementById("line_time"), 'macarons');
+//var line_time =echarts.init(document.getElementById("line_time"),'infographic');
+    var option = {
         // 给echarts图设置背景色
         //backgroundColor: '#FBFBFB',  // -----------> // 给echarts图设置背景色
         color: ['#7FFF00'],
         tooltip: {
             trigger: 'axis'
         },
-       
-		grid:{
-                    x:40,
-                    y:30,
-                    x2:5,
-                    y2:20
-                    
-                },
+
+        grid: {
+            x: 40,
+            y: 30,
+            x2: 5,
+            y2: 20
+
+        },
         calculable: true,
 
 
         xAxis: [{
-             type: 'category',
-        data: ['6:00-9:00', '10:00-12:00', '13:00-15:00', '16:00-20:00', '21:00-24:00'],
-     axisLabel: {
-			color: "#7FFF00" //刻度线标签颜色
-			}
+            type: 'category',
+            data: key,
+            axisLabel: {
+                color: "#7FFF00" //刻度线标签颜色
+            }
         }],
         yAxis: [{
 
             type: 'value',
             axisLabel: {
-			color: "#7FFF00" //刻度线标签颜色
-			}
+                color: "#7FFF00" //刻度线标签颜色
+            }
         }],
         series: [{
             name: '报警次数',
             type: 'line',
-            data: [800, 300, 500, 800, 300, 600],
-            
+            data: value,
+
         }]
     };
 
 
-line_time.setOption(option);
+    line_time.setOption(option);
+}
+
+
 
 
 //=========违法犯罪人员地区分布开始=======================

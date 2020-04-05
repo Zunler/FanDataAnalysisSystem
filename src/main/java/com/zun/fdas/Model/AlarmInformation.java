@@ -54,7 +54,10 @@ public class AlarmInformation {
     }
 
     private int id;
+    //机组编号
     private String fan_no;
+    //报警时间
     private String alarm_time;
+    //报警描述
     private String description;
 }

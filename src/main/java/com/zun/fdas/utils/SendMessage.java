@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import javax.websocket.Session;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 
@@ -65,7 +66,6 @@ public class SendMessage implements Runnable {
 
 
     @Override
-
     public void run() {
 
         while (true) {
@@ -83,10 +83,10 @@ public class SendMessage implements Runnable {
                 for (int i = currentIndex; i < list.size(); i++) {
 
                     try {
-                        JSONObject object = new JSONObject();
+                        JSONObject object = new JSONObject(new LinkedHashMap());
 
-                        JSONObject groupby = new JSONObject();
-                        JSONObject graph = new JSONObject();
+                        JSONObject groupby = new JSONObject(new LinkedHashMap());
+                        JSONObject graph = new JSONObject(new LinkedHashMap());
                         int type = typeAndNumList.size();
                         //报警信息
                         object.put("count", count);
@@ -103,7 +103,9 @@ public class SendMessage implements Runnable {
                         List<Period> period = periodService.getPeriod();
 
                         for (int j = 0; j < GRAPH_NODE_NUM; j++) {
-                            graph.put(period.get(j).getPeriod(), period.get(j).getNum());
+                            JSONObject node = new JSONObject();
+                            node.put(period.get(j).getPeriod(), period.get(j).getNum());
+                            graph.put(String.valueOf(j),node);
                         }
 
                         object.put("groupByRes", groupby);
@@ -125,7 +127,7 @@ public class SendMessage implements Runnable {
             }
             try {
 
-                //一秒刷新一次
+                //3秒刷新一次
 
                 Thread.sleep(3000);
 

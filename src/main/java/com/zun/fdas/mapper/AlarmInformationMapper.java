@@ -27,14 +27,17 @@ import java.util.List;
  */
 @Component
 public interface AlarmInformationMapper {
+    //获取总的报警数
     @Select("select count(id) from alarm_information")
     int getAlarmInformationCount();
 
+    //获取在最后一条报警信息一小时范围内的所有报警信息
     @Select("SELECT *  FROM \n" +
             "(select * from alarm_information where alarm_time > DATE_SUB((SELECT alarm_time FROM alarm_information ORDER BY alarm_time DESC LIMIT 1),INTERVAL  1 HOUR) ) as res \n" +
             "ORDER BY id ")
     List<AlarmInformation> getAlarmInformationList();
 
+    //插入一条报警信息
     @Insert("insert into alarm_information(id,fan_no,alarm_time,description) values(#{id},#{fan_no},#{alarm_time},#{description})")
     int addAlarmInformation(AlarmInformation alarmInformation);
 }

@@ -34,8 +34,9 @@ public class Period {
     public void setNum(int num) {
         this.num = num;
     }
-
+    //时间段
     private String period;
+    //报警次数
     private int num;
 
 }

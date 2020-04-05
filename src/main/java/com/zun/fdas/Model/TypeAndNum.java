@@ -36,7 +36,8 @@ public class TypeAndNum {
     public void setNum(int num) {
         this.num = num;
     }
-
+    //机组编号
     private String fan_no;
+    //该机组编号下的报警数
     private int num;
 }

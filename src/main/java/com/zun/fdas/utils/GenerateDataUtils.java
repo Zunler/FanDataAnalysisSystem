@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 〈模拟新增数据,每两秒插入一条数据〉<br>
+ * 〈模拟新增数据,每3秒插入一条数据〉<br>
  * 〈〉
  *
  * @author pengzijun

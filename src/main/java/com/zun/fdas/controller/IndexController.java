@@ -32,13 +32,7 @@ public class IndexController {
 AlarmInformationServiceImpl alarmInformationService;
     @RequestMapping("/index")
     public String hello() {
-        System.out.println("jell");
-
         List<AlarmInformation> informationList = alarmInformationService.getAlarmInformation();
-        for (AlarmInformation a:
-            informationList ) {
-            System.out.println(a.getAlarm_time()+a.getDescription()+a.getId()+a.getFan_no());
-        }
         return "index";
     }
 

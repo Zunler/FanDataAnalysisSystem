@@ -27,6 +27,8 @@ import java.util.List;
 public interface AlarmInformationService {
 
    List<AlarmInformation> getAlarmInformation();
+
    String addAlarmInformation(AlarmInformation alarmInformation);
+
    int alarmInformationCount();
 }
