@@ -9,7 +9,8 @@ $('document').ready(function () {
 
 //客户端就会与服务器进行连接
 
-var webSocket = new WebSocket("ws://localhost:8080/websocket");
+var webSocket = new WebSocket("ws://172.16.29.107:18080/websocket");
+// var webSocket = new WebSocket("ws://localhost:18080/websocket");
 
 
 
@@ -75,14 +76,14 @@ function updateTable(data) {
     var res = json.groupByRes;
     var res_str = "";
     var i = 1;
-    var values = [];
+    var type_values = [];
     var types = [];
     var pie_data=[]
     for (var key in res) {
         types.push(key);
-        values.push(res[key]);
+        type_values.push(res[key]);
         pie_data.push({value:res[key],name:key});
-        res_str += "<p style='color:#40ff18;font-weight:bold;'> NO." + (i) + " " + key + " ：" + res[key] + "条 </p>";
+        res_str += "<p style='color:#fafffb;font-weight:bold;'> NO." + (i) + " " + key + " ：" + res[key] + "条 </p>";
         i += 1;
     }
     //提取曲线图数据
@@ -90,7 +91,9 @@ function updateTable(data) {
     var values = []
     var graph = json.graph;
     var GRAPH_NODE_NUM = 6;
-    for (var j = 0; j < 6; j++) {
+    var len=Object.keys(graph).length
+
+    for (var j = 0; j < len; j++) {
         var node = graph[j];
         for (var key in node) {
             keys.push(key);
@@ -104,7 +107,7 @@ function updateTable(data) {
     document.getElementById("count").innerText = json.count;
     document.getElementById("top").innerHTML = res_str;
 //绘制图表
-    drawBar(types,values);
+    drawBar(types,type_values);
     drawPie(pie_data);
     drawGraph(keys, values);
 

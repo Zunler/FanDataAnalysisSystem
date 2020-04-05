@@ -101,8 +101,9 @@ public class SendMessage implements Runnable {
                         }
                         //取出曲线图节点数据
                         List<Period> period = periodService.getPeriod();
+                      //TODO 可能出现不够6条的情况
 
-                        for (int j = 0; j < GRAPH_NODE_NUM; j++) {
+                        for (int j = 0; j < period.size(); j++) {
                             JSONObject node = new JSONObject();
                             node.put(period.get(j).getPeriod(), period.get(j).getNum());
                             graph.put(String.valueOf(j),node);
