@@ -77,7 +77,7 @@ public class SendMessage implements Runnable {
             list = alarmInformationService.getAlarmInformation();
             int count = alarmInformationService.alarmInformationCount();
 
-
+            //有新增数据就发送到前端
             if (list != null && currentIndex < list.size()) {
 
                 for (int i = currentIndex; i < list.size(); i++) {
@@ -112,6 +112,7 @@ public class SendMessage implements Runnable {
                         object.put("groupByRes", groupby);
 
                         object.put("graph", graph);
+                        //向前端发送json
 
                         System.out.println(String.valueOf(object));
                         session.getBasicRemote().sendText(String.valueOf(object));

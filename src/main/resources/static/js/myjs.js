@@ -9,8 +9,9 @@ $('document').ready(function () {
 
 //客户端就会与服务器进行连接
 
-var webSocket = new WebSocket("ws://172.16.29.107:18080/websocket");
-// var webSocket = new WebSocket("ws://localhost:18080/websocket");
+//本地启动改成localhost
+//var webSocket = new WebSocket("ws://172.16.29.107:18080/websocket");
+ var webSocket = new WebSocket("ws://localhost:18080/websocket");
 
 
 
@@ -49,7 +50,7 @@ webSocket.onclose = function (event) {
 };
 //维护一个长度为LENGTH的数组，存储最近的消息
 var messages = []
-var LENGTH = 9
+var LENGTH = 6
 
 function updateTable(data) {
 

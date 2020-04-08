@@ -171,7 +171,7 @@ function drawPie(data){
         legend: {
             orient: 'vertical',
             x: 'left',
-            data:['WT1232','WT1231','WT1233'],
+            data:['WT02287','WT02288','WT02289'],
             textStyle: {color: '#fff'}
         },
         series: [

@@ -26,7 +26,7 @@ import java.util.List;
 @Service
 public interface AlarmInformationService {
 
-   List<AlarmInformation> getAlarmInformation();
+    List<AlarmInformation> getAlarmInformation();
 
    String addAlarmInformation(AlarmInformation alarmInformation);
 

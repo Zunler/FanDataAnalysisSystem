@@ -28,7 +28,7 @@ import java.util.Random;
  * @since 1.0.0
  */
 public class GenerateDataUtils implements Runnable {
-    final String[] fanNos = {"WT1231", "WT1232", "WT1233"};
+    final String[] fanNos = {"WT02287", "WT02288", "WT02289"};
 
     private AlarmInformationServiceImpl alarmInformationService = ApplicationContextProvider.getBean(AlarmInformationServiceImpl.class);
     @Override
